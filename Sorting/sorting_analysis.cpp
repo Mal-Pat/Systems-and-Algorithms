@@ -26,13 +26,77 @@ void selectionSort(int a[], int size) {
     }
 }
 
-void mergeSort(int a[], int left, int mid, int right) {
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
+void insertionSort(int a[], int size)
+{
+    for (int i = 1; i < size; ++i) {
+        int key = a[i];
+        int j = i - 1;
 
-    int L[n1], R[n2];
+        while (j >= 0 && a[j] > key) {
+            a[j + 1] = a[j];
+            j = j - 1;
+        }
+        a[j + 1] = key;
+    }
+}
 
-    
+void mergeArrays(int a[], int left, int mid, int right) {
+    int len1 = mid - left + 1;
+    int len2 = right - mid;
+
+    int L[len1], R[len2];
+
+    for (int i = 0; i < len1; i++)
+        L[i] = a[left + i];
+    for (int j = 0; j < len2; j++)
+        R[j] = a[mid + 1 + j];
+
+    int i = 0, j = 0;
+    int k = left;
+
+    while (i < len1 && j < len2) {
+        if (L[i] <= R[j]) {
+            a[k] = L[i];
+            i++;
+        } else {
+            a[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < len1) {
+        a[k] = L[i];
+        k++;
+        i++;
+    }
+
+    while (j < len2) {
+        a[k] = R[j];
+        k++;
+        j++;
+    }
+}
+
+void mergeSort(int a[], int left, int right) {
+    if (left >= right)
+        return;
+
+    int mid = left + (right - left) / 2;
+    mergeSort(a, left, mid);
+    mergeSort(a, mid + 1, right);
+    mergeArrays(a, left, mid, right);
+}
+
+void printArray(int A[], int size) {
+    cout << "[";
+    for (int i = 0; i < size; i++) {
+        cout << A[i];
+        if (!(i==size-1)) {
+            cout << ", ";
+        }
+    }
+    cout << "]\n";
 }
 
 void randomInputArray(int A[], int size) {
@@ -44,6 +108,16 @@ void randomInputArray(int A[], int size) {
         A[i] = distr(gen);
     }
 }
+
+/*
+int main() {
+    int arr[10];
+    randomInputArray(arr,10);
+    printArray(arr, 10);
+    insertionSort(arr, 10);
+    printArray(arr, 10);
+}
+*/
 
 int main() {
     ofstream outfile("Data/selection_analysis_5_10000_5.txt");
