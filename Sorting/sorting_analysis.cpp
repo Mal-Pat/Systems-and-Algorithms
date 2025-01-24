@@ -26,6 +26,15 @@ void selectionSort(int a[], int size) {
     }
 }
 
+void mergeSort(int a[], int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    int L[n1], R[n2];
+
+    
+}
+
 void randomInputArray(int A[], int size) {
     random_device rd;
     mt19937 gen(rd());
