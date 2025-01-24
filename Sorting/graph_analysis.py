@@ -33,7 +33,7 @@ def selection_sort_graph():
     plt.title("Selection Sort - Length vs Time")
     plt.legend()
 
-    plt.savefig('Data/selectionSort_analysis-1_5-10000-5_5.png')
+    plt.savefig('Graphs/selectionSort_analysis-1_5-10000-5_5.png')
 
 def insertion_sort_graph():
     lengths = []
@@ -66,7 +66,7 @@ def insertion_sort_graph():
     plt.title("Insertion Sort - Length vs Time")
     plt.legend()
 
-    plt.savefig('Data/insertionSort_analysis-1_5-10000-5_5.txt.png')
+    plt.savefig('Graphs/insertionSort_analysis-1_5-10000-5_5.txt.png')
 
 def nlogn(x, a, b, c):
     return (a * x * np.log2(x)) + (b * x) + c
@@ -103,7 +103,7 @@ def merge_sort_graph():
     plt.title("Merge Sort - Length vs Time")
     plt.legend()
 
-    plt.savefig('Data/mergeSort_analysis-1_5-10000-5_5.txt.png')
+    plt.savefig('Graphs/mergeSort_analysis-1_5-10000-5_5.txt.png')
 
 def plot_three_sorts():
     lengths = []
@@ -155,8 +155,4 @@ def plot_three_sorts():
     plt.title("Three Sorts - Length vs Time")
     plt.legend()
 
-    plt.savefig('Data/threeSorts_analysis-1_5-10000-5_5.txt.png')
-
-
-
-plot_three_sorts()
+    plt.savefig('Graphs/threeSorts_analysis-1_5-10000-5_5.txt.png')
