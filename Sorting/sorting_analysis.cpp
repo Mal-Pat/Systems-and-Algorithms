@@ -120,7 +120,7 @@ int main() {
 */
 
 int main() {
-    ofstream outfile("Data/selection_analysis_5_10000_5.txt");
+    ofstream outfile("Data/mergeSort_analysis-1_5-10000-5_5.txt");
     if (outfile.is_open()) {
         for (int i = 5; i <= 10000; i = i + 5) {
             float avg_time = 0;
@@ -128,7 +128,7 @@ int main() {
             for (int j = 0; j < 5; j++) {
                 randomInputArray(arr, i);
                 auto start = high_resolution_clock::now();
-                selectionSort(arr, i);
+                mergeSort(arr, 0, i - 1);
                 auto stop = high_resolution_clock::now();
                 auto duration = duration_cast<microseconds>(stop - start);
                 avg_time = avg_time + duration.count();
