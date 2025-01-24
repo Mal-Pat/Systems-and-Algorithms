@@ -37,7 +37,7 @@ void randomInputArray(int A[], int size) {
 }
 
 int main() {
-    ofstream outfile("selection_analysis_5_10000_5.txt");
+    ofstream outfile("Data/selection_analysis_5_10000_5.txt");
     if (outfile.is_open()) {
         for (int i = 5; i <= 10000; i = i + 5) {
             float avg_time = 0;
